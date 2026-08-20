@@ -48,7 +48,7 @@
     "NOT_TESTED"
   ],
   "license": "AGPL-3.0-only",
-  "version": "1.0.0-rc.2",
+  "version": "1.0.0-rc.3",
   "verified_extensions": [
     "transaction-journal-subset",
     "savepoints",

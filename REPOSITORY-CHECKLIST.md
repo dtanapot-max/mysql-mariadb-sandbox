@@ -1,3 +1,5 @@
+> Candidate: **1.0.0-rc.3 (AI-First RC3)**
+
 # Repository checklist
 
 - [x] Core baseline included unchanged
@@ -30,9 +32,9 @@
 
 
 
-## Merged Candidate RC2
+## AI-First RC3
 
-- [x] 55/55 Node regression tests pass
+- [x] 56/56 Node regression tests pass
 - [x] Transaction journal subset verified against shipped `sandbox/virtual-db.js`
 - [x] SAVEPOINT / rollback-to-savepoint verified
 - [x] Identifier/prototype-pollution guards verified

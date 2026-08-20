@@ -1,11 +1,11 @@
 {
   "schema": "core12.virtualdb.progress.v1",
-  "timestamp": "2026-08-20T11:51:00Z",
+  "timestamp": "2026-08-20T12:10:35Z",
   "overall_percent": 99,
-  "status": "MERGED_AI_FIRST_FINAL_CANDIDATE_BROWSER_GATE_PENDING",
+  "status": "AI_FIRST_RC3_BROWSER_GATE_PENDING",
   "tests": {
-    "total": 55,
-    "passed": 55,
+    "total": 56,
+    "passed": 56,
     "failed": 0
   },
   "milestones": {
@@ -30,7 +30,7 @@
     "M18_ai_control_surface": 99
   },
   "completed_final_gates": [
-    "55/55 regression",
+    "56/56 regression + public AI API contract",
     "transaction journal + savepoint tests",
     "identifier/security hardening",
     "repository integrity (no duplicate engine / no hard-coded working paths)",

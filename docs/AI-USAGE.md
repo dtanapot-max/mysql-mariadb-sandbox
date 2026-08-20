@@ -26,6 +26,29 @@ The AI control surface supports execution, batches, scenarios/assertions, state 
 
 Do not automate UI clicks when the same operation is available through the AI API. UI automation is reserved for browser/UI regression tests.
 
+
+## Verified AI Control API surface
+
+The current public AI wrapper exposes these methods. Use these exact names; do not infer aliases from prose or third-party reviews.
+
+| Method | Purpose |
+|---|---|
+| `execute(sql, opts)` | Execute one SQL statement and return structured success/error evidence. |
+| `executeBatch(statements, opts)` | Execute a bounded array of SQL statements. |
+| `runScenario(name, steps, opts)` | Execute deterministic multi-step scenarios with assertions. |
+| `inspect()` | Return database/table/column/row-count state summary. |
+| `health()` | Return engine/evidence health summary. |
+| `capabilities()` | Return tested capabilities, limits, and compatibility state. |
+| `assertResult(actual, expect)` | Validate structured AI API results. |
+| `exportReport()` | Export AI-readable state + evidence report. |
+| `begin()` / `commit()` / `rollback()` | Transaction subset controls. |
+| `savepoint(name)` / `releaseSavepoint(name)` | Savepoint subset controls. |
+| `transactionStatus()` | Inspect current transaction state. |
+| `snapshot()` / `restore()` / `reset()` | Sandbox state controls. |
+| `save()` / `saveSafe()` / `load()` | Persistence controls through Core storage. |
+
+The engine underneath also exposes `query()`, evidence/capability accessors, snapshots, persistence, and transaction primitives. The AI wrapper is preferred for agent workflows because it normalizes errors into structured results.
+
 ## Minimal agent workflow
 
 ```js

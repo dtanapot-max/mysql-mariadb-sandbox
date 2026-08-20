@@ -1,113 +1,113 @@
 {
-  "timestamp": "2026-08-20T11:50:42.518Z",
+  "timestamp": "2026-08-20T12:10:17.072Z",
   "node": "v22.16.0",
   "platform": "linux",
   "arch": "x64",
   "results": [
     {
       "name": "insert_100",
-      "ms": 2.316,
+      "ms": 2.321,
       "rows": 100,
-      "ops_per_sec": 43177.9
+      "ops_per_sec": 43084.9
     },
     {
       "name": "select_all_100",
-      "ms": 1.892,
+      "ms": 1.781,
       "rows": 100
     },
     {
       "name": "where_100",
-      "ms": 2.045,
+      "ms": 1.564,
       "rows": 1
     },
     {
       "name": "update_100",
-      "ms": 0.856,
+      "ms": 0.845,
       "rows": 1
     },
     {
       "name": "insert_1000",
-      "ms": 8.258,
+      "ms": 9.243,
       "rows": 1000,
-      "ops_per_sec": 121094.7
+      "ops_per_sec": 108190
     },
     {
       "name": "select_all_1000",
-      "ms": 3.483,
+      "ms": 3.132,
       "rows": 1000
     },
     {
       "name": "where_1000",
-      "ms": 1.671,
+      "ms": 1.231,
       "rows": 10
     },
     {
       "name": "update_1000",
-      "ms": 3.46,
+      "ms": 2.839,
       "rows": 10
     },
     {
       "name": "insert_5000",
-      "ms": 46.96,
+      "ms": 41.815,
       "rows": 5000,
-      "ops_per_sec": 106473.6
+      "ops_per_sec": 119574.3
     },
     {
       "name": "select_all_5000",
-      "ms": 23.225,
+      "ms": 12.229,
       "rows": 5000
     },
     {
       "name": "where_5000",
-      "ms": 5.953,
+      "ms": 5.13,
       "rows": 50
     },
     {
       "name": "update_5000",
-      "ms": 9.019,
+      "ms": 8.484,
       "rows": 50
     },
     {
       "name": "inner_join_5000x100",
-      "ms": 10.011,
+      "ms": 9.393,
       "rows": 5000
     },
     {
       "name": "indexed_point_lookup_1000x5000",
-      "ms": 16.552,
+      "ms": 13.918,
       "queries": 1000,
       "rows": 1000
     },
     {
       "name": "table_scan_lookup_100x5000",
-      "ms": 369.821,
+      "ms": 345.81,
       "queries": 100,
       "rows": 99
     },
     {
       "name": "transaction_insert_rollback_10",
-      "ms": 31.987,
+      "ms": 28.681,
       "rows": 10,
       "journal_entries": 1,
       "restored": true
     },
     {
       "name": "transaction_insert_rollback_1000",
-      "ms": 40.454,
+      "ms": 38.192,
       "rows": 1000,
       "journal_entries": 1,
       "restored": true
     },
     {
       "name": "transaction_insert_rollback_5000",
-      "ms": 105.019,
+      "ms": 59.438,
       "rows": 5000,
       "journal_entries": 1,
       "restored": true
     },
     {
       "name": "snapshot_5000",
-      "ms": 18.941,
+      "ms": 19.074,
       "bytes": 180418
     }
   ],
@@ -115,13 +115,13 @@
     "indexed_vs_scan": {
       "best_case": {
         "name": "indexed_point_lookup_1000x5000",
-        "ms": 16.552,
+        "ms": 13.918,
         "queries": 1000,
         "rows": 1000
       },
       "worst_case": {
         "name": "table_scan_lookup_100x5000",
-        "ms": 369.821,
+        "ms": 345.81,
         "queries": 100,
         "rows": 99
       }
@@ -129,21 +129,21 @@
     "transaction_rollback": [
       {
         "name": "transaction_insert_rollback_10",
-        "ms": 31.987,
+        "ms": 28.681,
         "rows": 10,
         "journal_entries": 1,
         "restored": true
       },
       {
         "name": "transaction_insert_rollback_1000",
-        "ms": 40.454,
+        "ms": 38.192,
         "rows": 1000,
         "journal_entries": 1,
         "restored": true
       },
       {
         "name": "transaction_insert_rollback_5000",
-        "ms": 105.019,
+        "ms": 59.438,
         "rows": 5000,
         "journal_entries": 1,
         "restored": true

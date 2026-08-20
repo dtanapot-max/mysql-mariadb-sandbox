@@ -10,11 +10,11 @@ This project does **not** run or connect to a real MySQL/MariaDB server. It impl
 ## Current status
 
 - Core baseline: `CoreEngine 1.2.0-r8-p1` (kept unchanged)
-- Merged Candidate baseline: **55/55 Node tests PASS**
+- Merged Candidate baseline: **56/56 Node tests PASS**
 - Long-run baseline: **21,004 operations / 0 unexpected failures**
 - Evidence audit: **PASS**
 - Browser IndexedDB reload: baseline evidence is still `NOT_TESTED` until GitHub Actions or a real local browser run passes
-- Project state: **Merged AI-First Candidate — browser gate pending**
+- Project state: **Merged AI-First RC3 — browser gate pending**
 
 Do not interpret this project as 100% MySQL/MariaDB compatible. Read `evidence/capability-manifest.json` for the exact tested feature set.
 
@@ -52,6 +52,20 @@ The core rule for AI consumers is **Evidence > Assumption**: never infer support
 - AI Control API for headless tests and scenarios
 - Golden scenarios, adversarial tests, transaction/security tests, long-run tests and best/worst benchmarks
 - GitHub Actions verification and Playwright browser persistence gate
+
+
+## Verified SQL/schema subset
+
+Verified data types in the current subset:
+
+```text
+INT / INTEGER / BIGINT / TINYINT
+VARCHAR / TEXT / DECIMAL
+BOOLEAN / BOOL
+DATE / DATETIME
+```
+
+Verified constraints include `PRIMARY KEY`, `UNIQUE`, `NOT NULL`, `DEFAULT`, and `AUTO_INCREMENT`. Runtime hash indexes are derived for verified PRIMARY/UNIQUE equality lookups; this is **not** a claim that every query is O(1). Transaction support is a journal-based rollback/savepoint subset, not full MySQL ACID/isolation semantics.
 
 ## Engine hardening merged
 
