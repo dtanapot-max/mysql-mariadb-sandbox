@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-08-20T11:51:36.666Z",
+  "status": "PASS",
+  "issues": [],
+  "warnings": [
+    "browser:NOT_TESTED:BROWSER_ENVIRONMENT_TIMEOUT"
+  ],
+  "checked_files": [
+    "sandbox-summary.json",
+    "sandbox-result.json",
+    "sandbox-events.jsonl",
+    "sandbox-errors.jsonl",
+    "sandbox-compatibility.json",
+    "benchmark.json",
+    "long-run.json",
+    "browser-test-status.json",
+    "capability-manifest.json"
+  ],
+  "event_lines": 13,
+  "summary_decision": "PASS",
+  "long_run_status": "PASS",
+  "browser_status": "NOT_TESTED"
+}

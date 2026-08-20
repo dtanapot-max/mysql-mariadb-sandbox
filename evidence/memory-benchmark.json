@@ -1,0 +1,8 @@
+{
+  "before_heap": 3815320,
+  "after_load_heap": 6461472,
+  "after_1000_queries_heap": 7456128,
+  "query_loop_ms": 731.31,
+  "delta_after_queries": 994656,
+  "evidence_events": 1004
+}

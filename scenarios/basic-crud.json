@@ -1,0 +1,13 @@
+{
+  "name": "golden-basic-crud",
+  "steps": [
+    {"sql":"CREATE DATABASE golden","expect":{"ok":true}},
+    {"sql":"USE golden","expect":{"ok":true}},
+    {"sql":"CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(30) NOT NULL, email VARCHAR(60) UNIQUE, age INT DEFAULT 0)","expect":{"ok":true}},
+    {"sql":"INSERT INTO users (name,email,age) VALUES ('A','a@test',20),('B','b@test',15)","expect":{"affectedRows":2}},
+    {"sql":"SELECT id,name FROM users WHERE age >= 18 ORDER BY id","expect":{"rowCount":1,"rows":[{"id":1,"name":"A"}]}},
+    {"sql":"UPDATE users SET age=21 WHERE id=2","expect":{"affectedRows":1}},
+    {"sql":"DELETE FROM users WHERE id=1","expect":{"affectedRows":1}},
+    {"sql":"SELECT id,name,age FROM users ORDER BY id","expect":{"rows":[{"id":2,"name":"B","age":21}]}}
+  ]
+}

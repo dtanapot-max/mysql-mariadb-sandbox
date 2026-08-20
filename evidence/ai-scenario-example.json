@@ -1,0 +1,11 @@
+{
+  "name": "basic-crud-agent",
+  "steps": [
+    {"sql":"CREATE DATABASE shop","expect":{"ok":true}},
+    {"sql":"USE shop","expect":{"ok":true}},
+    {"sql":"CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY, email VARCHAR(100) UNIQUE)","expect":{"ok":true}},
+    {"sql":"INSERT INTO users (email) VALUES ('a@test')","expect":{"affectedRows":1}},
+    {"sql":"SELECT id,email FROM users WHERE id = 1","expect":{"rowCount":1,"rows":[{"id":1,"email":"a@test"}]}},
+    {"sql":"INSERT INTO users (email) VALUES ('a@test')","expect":{"ok":false,"errorCode":"ER_DUP_ENTRY"}}
+  ]
+}

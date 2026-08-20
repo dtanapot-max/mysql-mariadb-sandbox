@@ -1,0 +1,30 @@
+# AI Database Sandbox
+
+> In-browser virtual MySQL/MariaDB behavioral sandbox for AI agents, testing, simulation, and automated verification. Powered by Core 1.2.
+
+This project does not connect to or run a real MySQL/MariaDB server.
+
+## Start here
+- README: ./README.md
+- Agent instructions: ./AGENTS.md
+- Machine-readable AI manifest: ./ai-manifest.json
+- AI Control API guide: ./docs/AI-USAGE.md
+- Architecture: ./docs/ARCHITECTURE.md
+- Capability manifest: ./evidence/capability-manifest.json
+- Compatibility: ./evidence/sandbox-compatibility.json
+- Latest verification status: ./evidence/FINAL-STATUS.json
+
+## Source
+- Core baseline: ./core/core-1.2.0-r8-p1.js
+- Virtual DB engine: ./sandbox/virtual-db.js
+- AI Control API: ./sandbox/ai-sandbox-api.js
+- Browser UI: ./index.html
+
+## Tests
+- Regression: `npm test`
+- AI API: `npm run test:ai`
+- Node verification: `npm run verify:node`
+- Final browser verification: `npm run verify:final`
+
+## Important rule
+Read `evidence/capability-manifest.json` before generating SQL. Features marked PARTIAL, NOT_SUPPORTED, or NOT_TESTED must not be presented as fully verified.

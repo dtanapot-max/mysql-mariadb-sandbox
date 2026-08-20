@@ -1,0 +1,44 @@
+
+> ai-database-sandbox@1.0.0-rc.1 test:long
+> node --expose-gc tests/long-run.js
+
+{
+  timestamp: '2026-08-20T11:35:17.949Z',
+  status: 'PASS',
+  operations_executed: 21004,
+  failures: 0,
+  duration_ms: 33685.769,
+  ops_per_second: 623.4,
+  heap_before: 3636080,
+  heap_after_load: 6078656,
+  heap_after_long_run: 8551128,
+  heap_delta_after_load: 2472472,
+  evidence: {
+    run_id: 'vdb-1787225684184-8ubvcd',
+    decision: 'PASS',
+    operations: 21004,
+    passed: 21004,
+    failed: 0,
+    expected_failures: 0,
+    unexpected_failures: 0,
+    unsupported: 0,
+    warnings: 0,
+    dropped_events: 16004,
+    retained_events: 5000,
+    compatibility_target: 'MySQL/MariaDB behavioral subset for sandbox testing',
+    limits: {
+      maxSqlLength: 100000,
+      maxDatabases: 32,
+      maxTablesPerDatabase: 128,
+      maxColumnsPerTable: 128,
+      maxRowsPerTable: 20000,
+      maxResultRows: 20000,
+      maxSnapshots: 100,
+      maxExpressionDepth: 64,
+      queryTimeoutMs: 3000,
+      maxImportBytes: 5242880,
+      maxEvidenceEvents: 5000
+    }
+  },
+  final_rows: 5000
+}

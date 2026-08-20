@@ -1,0 +1,7 @@
+'use strict';
+const test=require('node:test');const assert=require('node:assert/strict');const fs=require('node:fs');const path=require('node:path');
+const root=path.join(__dirname,'..');
+function walk(dir){let out=[];for(const e of fs.readdirSync(dir,{withFileTypes:true})){if(e.name==='.git'||e.name==='node_modules'||e.name==='.site')continue;const p=path.join(dir,e.name);if(e.isDirectory())out=out.concat(walk(p));else out.push(p);}return out;}
+test('tests do not embed a duplicate VirtualDBEngine implementation',()=>{for(const f of walk(path.join(root,'tests')).filter(x=>x.endsWith('.js'))){const s=fs.readFileSync(f,'utf8');assert.equal(/class\s+VirtualDBEngine\b/.test(s),false,`duplicate engine in ${path.relative(root,f)}`);}});
+test('repository has no Gemini/container hard-coded working paths',()=>{for(const f of walk(root).filter(x=>/\.(?:js|json|md|bat|yml|yaml)$/.test(x)&&path.basename(x)!=='repository-integrity.test.js')){const s=fs.readFileSync(f,'utf8');assert.equal(s.includes('/working_dir/'),false,`hard-coded /working_dir path in ${path.relative(root,f)}`);}});
+test('production tests import the shipped virtual-db source',()=>{for(const name of ['unit.test.js','adversarial.test.js','automation.test.js','final-gates.test.js','transaction-security.test.js']){const s=fs.readFileSync(path.join(__dirname,name),'utf8');assert.ok(s.includes('../sandbox/virtual-db.js'),`${name} does not import production engine`);}});

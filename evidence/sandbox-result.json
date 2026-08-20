@@ -1,0 +1,28 @@
+{
+  "run_id": "vdb-1787226651052-cpuh1r",
+  "sequence": 13,
+  "timestamp": "2026-08-20T11:50:51.062Z",
+  "operation": "UPDATE",
+  "original_sql": "UPDATE users SET age=21 WHERE id=1",
+  "parser_status": "PASS",
+  "ast_summary": {
+    "statement": "UPDATE"
+  },
+  "execution_plan": null,
+  "database": "demo",
+  "table": "users",
+  "execution_phase": "complete",
+  "duration_ms": 0.657,
+  "status": "PASS",
+  "failure_classification": "PASS",
+  "rows_returned": 0,
+  "affected_rows": 1,
+  "insert_id": null,
+  "state_changed": true,
+  "snapshot_before": "snap-1787226651061-1",
+  "snapshot_after": null,
+  "warnings": [],
+  "errors": [],
+  "compatibility_status": "PASS",
+  "unsupported_features": []
+}

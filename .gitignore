@@ -1,0 +1,16 @@
+node_modules/
+playwright-report/
+test-results/
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+coverage/
+# Runtime/generated browser diagnostics
+evidence/browser-smoke-*.html
+evidence/browser-smoke-*.txt
+evidence/coverage-*.txt
+evidence/*-output.txt
+
+.site/

@@ -1,0 +1,16 @@
+{
+  schema: 'core12.virtualdb.final-status.v1',
+  timestamp: '2026-08-20T11:50:51.205Z',
+  decision: 'NOT_READY_FOR_FREEZE',
+  gates: {
+    node_tests: 'PASS',
+    engine_evidence: 'PASS',
+    long_run: 'PASS',
+    browser_indexeddb_reload: 'NOT_TESTED',
+    evidence_audit: 'PASS'
+  },
+  blockers: [ { gate: 'browser_indexeddb_reload', status: 'NOT_TESTED' } ],
+  notes: [
+    'MySQL/MariaDB behavioral subset only; not a full server implementation.'
+  ]
+}

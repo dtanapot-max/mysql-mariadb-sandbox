@@ -1,0 +1,38 @@
+{
+  "baseline": "V1 candidate after read-only clone optimization",
+  "latest": "V1 hardened indexed/hash-join candidate",
+  "results": [
+    {
+      "name": "insert_1000",
+      "before_ms": 23.049,
+      "after_ms": 7.215,
+      "change_percent": -68.7,
+      "speedup_x": 3.19
+    },
+    {
+      "name": "insert_5000",
+      "before_ms": 302.026,
+      "after_ms": 29.781,
+      "change_percent": -90.1,
+      "speedup_x": 10.14
+    },
+    {
+      "name": "inner_join_5000x100",
+      "before_ms": 292.806,
+      "after_ms": 10.978,
+      "change_percent": -96.3,
+      "speedup_x": 26.67
+    },
+    {
+      "name": "snapshot_5000",
+      "before_ms": 18.742,
+      "after_ms": 18.493,
+      "change_percent": -1.3,
+      "speedup_x": 1.01
+    }
+  ],
+  "notes": [
+    "Negative change_percent means faster.",
+    "Snapshot cache is non-persistent/non-enumerable so snapshot size remains data-only."
+  ]
+}

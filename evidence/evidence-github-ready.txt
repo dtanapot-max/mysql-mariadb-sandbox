@@ -1,0 +1,31 @@
+
+> ai-database-sandbox@1.0.0-rc.1 evidence
+> node tests/generate-evidence.js
+
+evidence generated {
+  run_id: 'vdb-1787225718079-o77ydn',
+  decision: 'PASS',
+  operations: 8,
+  passed: 6,
+  failed: 2,
+  expected_failures: 2,
+  unexpected_failures: 0,
+  unsupported: 1,
+  warnings: 0,
+  dropped_events: 0,
+  retained_events: 8,
+  compatibility_target: 'MySQL/MariaDB behavioral subset for sandbox testing',
+  limits: {
+    maxSqlLength: 100000,
+    maxDatabases: 32,
+    maxTablesPerDatabase: 128,
+    maxColumnsPerTable: 128,
+    maxRowsPerTable: 100000,
+    maxResultRows: 10000,
+    maxSnapshots: 100,
+    maxExpressionDepth: 64,
+    queryTimeoutMs: 3000,
+    maxImportBytes: 5242880,
+    maxEvidenceEvents: 10000
+  }
+}

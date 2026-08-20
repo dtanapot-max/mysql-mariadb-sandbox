@@ -1,0 +1,97 @@
+
+> ai-database-sandbox@1.0.0-rc.1 benchmark
+> node tests/benchmark.js
+
+{
+  "timestamp": "2026-08-20T11:34:01.420Z",
+  "node": "v22.16.0",
+  "platform": "linux",
+  "arch": "x64",
+  "results": [
+    {
+      "name": "insert_100",
+      "ms": 2.305,
+      "rows": 100,
+      "ops_per_sec": 43383.9
+    },
+    {
+      "name": "select_all_100",
+      "ms": 1.635,
+      "rows": 100
+    },
+    {
+      "name": "where_100",
+      "ms": 1.591,
+      "rows": 1
+    },
+    {
+      "name": "update_100",
+      "ms": 0.964,
+      "rows": 1
+    },
+    {
+      "name": "insert_1000",
+      "ms": 7.678,
+      "rows": 1000,
+      "ops_per_sec": 130242.3
+    },
+    {
+      "name": "select_all_1000",
+      "ms": 3.28,
+      "rows": 1000
+    },
+    {
+      "name": "where_1000",
+      "ms": 1.463,
+      "rows": 10
+    },
+    {
+      "name": "update_1000",
+      "ms": 2.634,
+      "rows": 10
+    },
+    {
+      "name": "insert_5000",
+      "ms": 29.155,
+      "rows": 5000,
+      "ops_per_sec": 171497.2
+    },
+    {
+      "name": "select_all_5000",
+      "ms": 13.007,
+      "rows": 5000
+    },
+    {
+      "name": "where_5000",
+      "ms": 5.698,
+      "rows": 50
+    },
+    {
+      "name": "update_5000",
+      "ms": 10.08,
+      "rows": 50
+    },
+    {
+      "name": "inner_join_5000x100",
+      "ms": 11.045,
+      "rows": 5000
+    },
+    {
+      "name": "indexed_point_lookup_1000x5000",
+      "ms": 1143.79,
+      "queries": 1000,
+      "rows": 1000
+    },
+    {
+      "name": "table_scan_lookup_100x5000",
+      "ms": 474.874,
+      "queries": 100,
+      "rows": 99
+    },
+    {
+      "name": "snapshot_5000",
+      "ms": 17.503,
+      "bytes": 180418
+    }
+  ]
+}

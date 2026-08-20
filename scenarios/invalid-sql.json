@@ -1,0 +1,11 @@
+{
+  "name": "golden-invalid-sql",
+  "steps": [
+    {"sql":"CREATE DATABASE bad","expect":{"ok":true}},
+    {"sql":"USE bad","expect":{"ok":true}},
+    {"sql":"CREATE TABLE t (id INT PRIMARY KEY, v INT)","expect":{"ok":true}},
+    {"sql":"SELECT missing FROM t","expect":{"ok":false,"errorCode":"ER_BAD_FIELD_ERROR"}},
+    {"sql":"CREATE PROCEDURE p() SELECT 1","expect":{"ok":false,"errorCode":"NOT_SUPPORTED"}},
+    {"sql":"SELECT * FROM missing","expect":{"ok":false,"errorCode":"ER_NO_SUCH_TABLE"}}
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "CREATE_DATABASE": {
+    "status": "PASS",
+    "note": null
+  },
+  "DROP_DATABASE": {
+    "status": "PASS",
+    "note": null
+  },
+  "USE": {
+    "status": "PASS",
+    "note": null
+  },
+  "CREATE_TABLE": {
+    "status": "PASS",
+    "note": null
+  },
+  "DROP_TABLE": {
+    "status": "PASS",
+    "note": null
+  },
+  "INSERT": {
+    "status": "PASS",
+    "note": null
+  },
+  "SELECT": {
+    "status": "PASS",
+    "note": null
+  },
+  "UPDATE": {
+    "status": "PASS",
+    "note": null
+  },
+  "DELETE": {
+    "status": "PASS",
+    "note": null
+  },
+  "WHERE": {
+    "status": "PASS",
+    "note": null
+  },
+  "ORDER_BY": {
+    "status": "PASS",
+    "note": null
+  },
+  "LIMIT": {
+    "status": "PASS",
+    "note": null
+  },
+  "OFFSET": {
+    "status": "PASS",
+    "note": null
+  },
+  "PRIMARY_KEY": {
+    "status": "PASS",
+    "note": null
+  },
+  "UNIQUE": {
+    "status": "PASS",
+    "note": null
+  },
+  "NOT_NULL": {
+    "status": "PASS",
+    "note": null
+  },
+  "DEFAULT": {
+    "status": "PASS",
+    "note": null
+  },
+  "AUTO_INCREMENT": {
+    "status": "PASS",
+    "note": null
+  },
+  "INNER_JOIN": {
+    "status": "PASS",
+    "note": null
+  },
+  "LEFT_JOIN": {
+    "status": "PASS",
+    "note": null
+  },
+  "ALTER_ADD_COLUMN": {
+    "status": "PASS",
+    "note": null
+  },
+  "ALTER_DROP_COLUMN": {
+    "status": "PASS",
+    "note": null
+  },
+  "ALTER_MODIFY_COLUMN": {
+    "status": "PASS",
+    "note": null
+  },
+  "MEMORY_PERSISTENCE": {
+    "status": "PASS",
+    "note": null
+  },
+  "SNAPSHOT_RESTORE": {
+    "status": "PASS",
+    "note": null
+  },
+  "EVIDENCE_EXPORT": {
+    "status": "PASS",
+    "note": null
+  },
+  "TRANSACTION": {
+    "status": "PASS",
+    "note": null
+  },
+  "SAVEPOINT": {
+    "status": "PASS",
+    "note": null
+  },
+  "INDEXEDDB_PERSISTENCE": {
+    "status": "NOT_TESTED",
+    "note": "Requires a real browser IndexedDB verification run"
+  },
+  "FOREIGN_KEY": {
+    "status": "NOT_SUPPORTED",
+    "note": null
+  },
+  "GROUP_BY": {
+    "status": "NOT_SUPPORTED",
+    "note": null
+  },
+  "HAVING": {
+    "status": "NOT_SUPPORTED",
+    "note": null
+  },
+  "SUBQUERY": {
+    "status": "NOT_SUPPORTED",
+    "note": null
+  },
+  "VIEW": {
+    "status": "NOT_SUPPORTED",
+    "note": null
+  },
+  "PROCEDURE": {
+    "status": "NOT_SUPPORTED",
+    "note": null
+  },
+  "TRIGGER": {
+    "status": "NOT_SUPPORTED",
+    "note": null
+  }
+}

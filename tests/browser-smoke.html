@@ -1,0 +1,17 @@
+<!doctype html><meta charset="utf-8"><title>VDB Browser Persistence Verify</title><pre id="out">RUNNING</pre>
+<script src="../core/core-1.2.0-r8-p1.js"></script><script src="../sandbox/virtual-db.js"></script>
+<script>
+(async()=>{const out=document.getElementById('out');try{
+  const adapter=CoreEngine.createIndexedDBStorage('VDBBrowserTest','State');
+  const phase=sessionStorage.getItem('vdb-browser-phase')||'write';
+  const core=CoreEngine.createCore({storageAdapter:adapter});const db=VirtualDB.registerVirtualDB(core);await core.boot();
+  if(phase==='write'){
+    await db.query('CREATE DATABASE IF NOT EXISTS browser');await db.query('USE browser');await db.query('DROP TABLE IF EXISTS t');await db.query('CREATE TABLE t (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(20) NOT NULL)');await db.query("INSERT INTO t (name) VALUES ('persisted')");await db.saveSafe('browser-state');
+    if(adapter._isFallbackActive())throw new Error('IndexedDB adapter fell back to memory during write');
+    sessionStorage.setItem('vdb-browser-phase','verify');await core.destroy();location.reload();return;
+  }
+  sessionStorage.removeItem('vdb-browser-phase');await db.load('browser-state');const r=await db.query('SELECT id,name FROM t');
+  const pass=r.result.rows.length===1&&r.result.rows[0].name==='persisted'&&!adapter._isFallbackActive();
+  out.textContent=pass?'BROWSER_INDEXEDDB_RELOAD_PASS':'BROWSER_INDEXEDDB_RELOAD_FAIL '+JSON.stringify({rows:r.result.rows,fallback:adapter._isFallbackActive()});await core.destroy();
+}catch(e){sessionStorage.removeItem('vdb-browser-phase');out.textContent='BROWSER_ERROR '+(e&&e.stack||e);}})();
+</script>

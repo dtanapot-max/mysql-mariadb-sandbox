@@ -1,0 +1,53 @@
+{
+  "name": "ai-database-sandbox",
+  "version": "1.0.0-rc.2",
+  "private": false,
+  "description": "In-browser virtual MySQL/MariaDB behavioral sandbox for AI agents, testing, simulation, and automated verification. Powered by Core 1.2.",
+  "main": "sandbox/virtual-db.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node tools/static-server.js 4173",
+    "test": "node --test tests/*.test.js",
+    "test:coverage": "node --experimental-test-coverage --test tests/unit.test.js tests/adversarial.test.js tests/automation.test.js tests/ai-sandbox.test.js tests/final-gates.test.js tests/transaction-security.test.js",
+    "test:browser": "playwright test tests/browser-playwright.spec.js",
+    "benchmark": "node tests/benchmark.js",
+    "test:long": "node --expose-gc tests/long-run.js",
+    "evidence": "node tests/generate-evidence.js",
+    "evidence:audit": "node tests/evidence-audit.js",
+    "final:status": "node tests/final-status.js",
+    "verify:node": "npm test && npm run test:coverage && npm run benchmark && npm run test:long && npm run evidence && npm run evidence:audit",
+    "verify:final": "npm run verify:node && npm run test:browser && npm run evidence:audit && npm run final:status",
+    "test:ai": "node --test tests/ai-sandbox.test.js"
+  },
+  "keywords": [
+    "ai",
+    "ai-agents",
+    "database",
+    "database-sandbox",
+    "sql",
+    "sql-sandbox",
+    "database-testing",
+    "mysql",
+    "mariadb",
+    "testing",
+    "javascript",
+    "browser",
+    "indexeddb",
+    "automation"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dtanapot-max/ai-database-sandbox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dtanapot-max/ai-database-sandbox/issues"
+  },
+  "homepage": "https://dtanapot-max.github.io/ai-database-sandbox/",
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  },
+  "license": "AGPL-3.0-only"
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "project": "ai-database-sandbox",
+  "purpose": "In-browser virtual MySQL/MariaDB behavioral subset for AI-agent testing, simulation, and automated verification",
+  "not_a_real_database_server": true,
+  "core": {
+    "version": "1.2.0-r8-p1",
+    "path": "core/core-1.2.0-r8-p1.js",
+    "policy": "baseline; do not modify unless explicitly required"
+  },
+  "entrypoints": {
+    "human": "README.md",
+    "agent_instructions": "AGENTS.md",
+    "llm_index": "llms.txt",
+    "ai_usage": "docs/AI-USAGE.md",
+    "engine": "sandbox/virtual-db.js",
+    "ai_control_api": "sandbox/ai-sandbox-api.js",
+    "browser_ui": "index.html"
+  },
+  "source_of_truth": {
+    "capabilities": "evidence/capability-manifest.json",
+    "compatibility": "evidence/sandbox-compatibility.json",
+    "status": "evidence/FINAL-STATUS.json",
+    "evidence_audit": "evidence/evidence-audit.json"
+  },
+  "commands": {
+    "regression": "npm test",
+    "ai_api": "npm run test:ai",
+    "coverage": "npm run test:coverage",
+    "benchmark": "npm run benchmark",
+    "long_run": "npm run test:long",
+    "node_verify": "npm run verify:node",
+    "browser_verify": "npm run test:browser",
+    "final_verify": "npm run verify:final"
+  },
+  "agent_rules": [
+    "Read capability-manifest.json before generating SQL or assertions",
+    "Prefer the AI Control API over DOM automation",
+    "Do not convert NOT_TESTED or PARTIAL to PASS without new evidence",
+    "Expected SQL errors may be successful test outcomes",
+    "Do not claim 100% MySQL/MariaDB compatibility",
+    "Do not silently execute unsupported SQL"
+  ],
+  "capability_states": [
+    "PASS",
+    "PARTIAL",
+    "NOT_SUPPORTED",
+    "NOT_TESTED"
+  ],
+  "license": "AGPL-3.0-only",
+  "version": "1.0.0-rc.2",
+  "verified_extensions": [
+    "transaction-journal-subset",
+    "savepoints",
+    "identifier-hardening",
+    "runtime-primary-unique-indexes",
+    "best-worst-benchmark-matrix"
+  ]
+}

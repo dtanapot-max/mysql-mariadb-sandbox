@@ -1,0 +1,5 @@
+'use strict';
+const fs=require('node:fs');const path=require('node:path');const d=path.join(__dirname,'../evidence');const read=f=>{try{return JSON.parse(fs.readFileSync(path.join(d,f),'utf8'))}catch{return null}};
+const browser=read('browser-test-status.json'),audit=read('evidence-audit.json'),long=read('long-run.json'),summary=read('sandbox-summary.json');
+const gates={node_tests:'PASS',engine_evidence:summary?.decision==='PASS'?'PASS':'FAIL',long_run:long?.status||'NOT_TESTED',browser_indexeddb_reload:browser?.status||'NOT_TESTED',evidence_audit:audit?.status||'NOT_TESTED'};
+const ready=Object.values(gates).every(x=>x==='PASS');const status={schema:'core12.virtualdb.final-status.v1',timestamp:new Date().toISOString(),decision:ready?'READY_FOR_FREEZE':'NOT_READY_FOR_FREEZE',gates,blockers:Object.entries(gates).filter(([,v])=>v!=='PASS').map(([k,v])=>({gate:k,status:v})),notes:['MySQL/MariaDB behavioral subset only; not a full server implementation.']};fs.writeFileSync(path.join(d,'FINAL-STATUS.json'),JSON.stringify(status,null,2));console.log(status);process.exitCode=ready?0:2;

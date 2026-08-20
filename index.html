@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Core 1.2 Virtual DB</title><link rel="stylesheet" href="ui/styles.css"></head><body>
+<header><div class="brand"><strong>Virtual DB Sandbox</strong><small id="version">Core 1.2 · booting…</small></div><div class="header-actions"><span class="core-badge">CORE 1.2</span><span id="status" class="pill">INIT</span></div></header>
+<main>
+<aside>
+  <div class="section-title"><span>DATABASES</span><button id="refresh" title="Refresh">↻</button></div>
+  <div class="create-db"><input id="newDbName" placeholder="ชื่อ database"><button id="createDb">+ สร้าง</button></div>
+  <div id="tree" class="tree"></div>
+  <hr>
+  <div class="side-actions"><button id="snapshot">Snapshot</button><button id="restore">Restore Latest</button><button id="reset" class="danger">Reset Sandbox</button></div>
+</aside>
+<section class="workspace">
+  <div id="emptyState" class="empty-state"><h2>เลือก Database หรือ Table ทางซ้าย</h2><p>คุณจะเห็น Database → Tables → Fields → Rows ได้เหมือนเครื่องมือจัดการฐานข้อมูลทั่วไป</p></div>
+  <div id="dbView" hidden>
+    <div class="crumb" id="crumb">Server</div>
+    <div class="summary-cards"><div><b id="dbName">—</b><span>Database</span></div><div><b id="tableCount">0</b><span>Tables</span></div><div><b id="rowCount">0</b><span>Total Rows</span></div></div>
+    <div class="panel"><div class="panel-head"><h3>Tables</h3><div class="quick-table"><input id="newTableName" placeholder="ชื่อตาราง"><input id="newTableFields" value="id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100)" aria-label="fields"><button id="createTable">+ Table</button></div></div><div id="tableCards" class="table-cards"></div></div>
+  </div>
+  <div id="tableView" hidden>
+    <div class="crumb" id="tableCrumb">Server / DB / Table</div>
+    <div class="table-title"><div><h2 id="selectedTable">—</h2><small id="tableStats"></small></div><div class="row-actions"><button id="dropDatabase" class="danger-outline">Drop Database</button><button id="dropTable" class="danger-outline">Drop Table</button></div></div>
+    <nav class="main-tabs"><button data-main-tab="browse" class="active">Browse</button><button data-main-tab="structure">Structure</button><button data-main-tab="sql">SQL</button><button data-main-tab="evidence">Evidence</button><button data-main-tab="compat">Compatibility</button><button data-main-tab="diag">Diagnostics</button></nav>
+    <div id="main-browse" class="main-tab active"><div class="panel"><div class="panel-head"><h3>Rows</h3><div class="row-actions"><button id="insertRow" class="primary">+ Insert Row</button><button id="refreshRows">Refresh</button></div></div><div id="rowsGrid" class="grid-wrap"></div></div></div>
+    <div id="main-structure" class="main-tab"><div class="panel"><div class="panel-head"><h3>Fields / Columns</h3><button id="addField">+ Add Field</button></div><div id="fieldsGrid" class="grid-wrap"></div></div></div>
+    <div id="main-sql" class="main-tab"><textarea id="sql" spellcheck="false">SELECT * FROM users LIMIT 100;</textarea><div class="toolbar"><button id="run" class="primary">Run SQL</button><button id="clearResult">Clear</button><button id="exportSql">Export SQL</button><button id="exportEvidence">Export Evidence</button><label>Import SQL<input id="importSql" type="file" accept=".sql,text/plain"></label></div><pre id="result">Ready.</pre></div>
+    <div id="main-evidence" class="main-tab"><pre id="evidence"></pre></div><div id="main-compat" class="main-tab"><pre id="compat"></pre></div><div id="main-diag" class="main-tab"><pre id="diag"></pre></div>
+  </div>
+</section></main>
+<footer>Core 1.2 R8-P1 → Virtual MySQL/MariaDB behavioral subset · ไม่เชื่อมต่อ MySQL จริง</footer>
+<script src="core/core-1.2.0-r8-p1.js"></script><script src="sandbox/virtual-db.js"></script><script src="sandbox/ai-sandbox-api.js"></script><script src="ui/app.js"></script></body></html>

@@ -1,0 +1,13 @@
+{
+  "name": "golden-constraints",
+  "steps": [
+    {"sql":"CREATE DATABASE c","expect":{"ok":true}},
+    {"sql":"USE c","expect":{"ok":true}},
+    {"sql":"CREATE TABLE t (id INT PRIMARY KEY, code VARCHAR(8) UNIQUE, name VARCHAR(5) NOT NULL)","expect":{"ok":true}},
+    {"sql":"INSERT INTO t (id,code,name) VALUES (1,'A','abc')","expect":{"affectedRows":1}},
+    {"sql":"INSERT INTO t (id,code,name) VALUES (2,'A','def')","expect":{"ok":false,"errorCode":"ER_DUP_ENTRY"}},
+    {"sql":"INSERT INTO t (id,code,name) VALUES (3,'C',NULL)","expect":{"ok":false,"errorCode":"ER_BAD_NULL_ERROR"}},
+    {"sql":"INSERT INTO t (id,code,name) VALUES (4,'D','123456')","expect":{"ok":false,"errorCode":"ER_DATA_TOO_LONG"}},
+    {"sql":"SELECT * FROM t","expect":{"rowCount":1}}
+  ]
+}

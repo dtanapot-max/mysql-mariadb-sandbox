@@ -1,0 +1,24 @@
+
+> ai-database-sandbox@1.0.0-rc.1 evidence:audit
+> node tests/evidence-audit.js
+
+{
+  timestamp: '2026-08-20T11:35:18.192Z',
+  status: 'PASS',
+  issues: [],
+  warnings: [ 'browser:NOT_TESTED:BROWSER_ENVIRONMENT_TIMEOUT' ],
+  checked_files: [
+    'sandbox-summary.json',
+    'sandbox-result.json',
+    'sandbox-events.jsonl',
+    'sandbox-errors.jsonl',
+    'sandbox-compatibility.json',
+    'benchmark.json',
+    'long-run.json',
+    'browser-test-status.json'
+  ],
+  event_lines: 8,
+  summary_decision: 'PASS',
+  long_run_status: 'PASS',
+  browser_status: 'NOT_TESTED'
+}

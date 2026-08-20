@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-08-20T11:18:26.476Z",
+  "status": "NOT_TESTED",
+  "browser": "/usr/bin/chromium",
+  "reason": "BROWSER_ENVIRONMENT_TIMEOUT",
+  "marker": null,
+  "exit_code": null,
+  "url": "http://127.0.0.1:42297/tests/browser-smoke.html"
+}

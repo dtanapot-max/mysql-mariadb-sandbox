@@ -1,0 +1,15 @@
+{
+  "name": "golden-transactions",
+  "steps": [
+    {"sql":"CREATE DATABASE txg","expect":{"ok":true}},
+    {"sql":"USE txg","expect":{"ok":true}},
+    {"sql":"CREATE TABLE ledger (id INT PRIMARY KEY, amount INT NOT NULL)","expect":{"ok":true}},
+    {"sql":"BEGIN","expect":{"ok":true}},
+    {"sql":"INSERT INTO ledger (id,amount) VALUES (1,10)","expect":{"affectedRows":1}},
+    {"sql":"SAVEPOINT keep_first","expect":{"ok":true}},
+    {"sql":"INSERT INTO ledger (id,amount) VALUES (2,20)","expect":{"affectedRows":1}},
+    {"sql":"ROLLBACK TO SAVEPOINT keep_first","expect":{"ok":true}},
+    {"sql":"COMMIT","expect":{"ok":true}},
+    {"sql":"SELECT id,amount FROM ledger ORDER BY id","expect":{"rows":[{"id":1,"amount":10}]}}
+  ]
+}
