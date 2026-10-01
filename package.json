@@ -47,7 +47,7 @@
     "node": ">=22"
   },
   "devDependencies": {
-    "@playwright/test": "1.55.0"
+    "@playwright/test": "1.63.0"
   },
   "license": "AGPL-3.0-only"
 }
